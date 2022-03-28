@@ -3,11 +3,14 @@ package rva.jpa;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 /**
  * The persistent class for the racun database table.
  * 
  */
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Entity
 @NamedQuery(name="Racun.findAll", query="SELECT r FROM Racun r")
 public class Racun implements Serializable {

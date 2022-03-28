@@ -38,7 +38,7 @@ public class Klijent implements Serializable {
 
 	//bi-directional many-to-one association to Racun
 	@JsonIgnore
-	@OneToMany(mappedBy="klijent")
+	@OneToMany(mappedBy="klijent",cascade= {CascadeType.DETACH,CascadeType.REMOVE})
 	private List<Racun> racuns;
 
 	public Klijent() {

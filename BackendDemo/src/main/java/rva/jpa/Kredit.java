@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * The persistent class for the kredit database table.
  * 
  */
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Entity
 @NamedQuery(name="Kredit.findAll", query="SELECT k FROM Kredit k")
 public class Kredit implements Serializable {
@@ -30,7 +32,7 @@ public class Kredit implements Serializable {
 
 	//bi-directional many-to-one association to Klijent
 	@JsonIgnore
-	@OneToMany(mappedBy="kredit")
+	@OneToMany(mappedBy="kredit",cascade= {CascadeType.DETACH,CascadeType.REMOVE})
 	private List<Klijent> klijents;
 
 	public Kredit() {
