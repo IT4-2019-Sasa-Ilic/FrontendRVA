@@ -1,7 +1,7 @@
-insert into klijent(id,ime,prezime,broj_lk,kredit)
-values (-100,'Petar','Petrovic','0551418',-100);
 insert into kredit (id,naziv,oznaka,opis)
 values (-100,'Kredit za testiranje','TK','Kredit namenjen za testiranje aplikacije');
+insert into klijent(id,ime,prezime,broj_lk,kredit)
+values (-100,'Petar','Petrovic','0551418',-100);
 insert into tip_racuna (id,naziv,oznaka,opis)
 values (-100,'Tekuci racun','TT','Racun za testiranje');
 insert into racun (id,naziv,oznaka,opis,tip_racuna,klijent)
@@ -35,4 +35,3 @@ values (nextval('racun_seq'),'Racun br.2584','R2584','Kreditni racun','1','1'),
 (nextval('racun_seq'),'Racun br.2586','R2586','Kreditni racun','3','3'),
 (nextval('racun_seq'),'Racun br.2587','R2587','Kreditni racun','4','4'),
 (nextval('racun_seq'),'Racun br.2588','R2588','Kreditni racun','5','5');
-

@@ -51,13 +51,13 @@ ADD CONSTRAINT pk_racun PRIMARY KEY (id);
 
 ALTER TABLE klijent
 ADD CONSTRAINT fk_klijent_kredit FOREIGN KEY (kredit)
-REFERENCES kredit (id);
+REFERENCES kredit (id) on delete cascade;
 ALTER TABLE racun
 ADD CONSTRAINT fk_racun_tip_racuna FOREIGN KEY (tip_racuna)
-REFERENCES tip_racuna (id);
+REFERENCES tip_racuna (id) on delete cascade;
 ALTER TABLE racun
 ADD CONSTRAINT fk_racun_klijent FOREIGN KEY (klijent)
-REFERENCES klijent (id);
+REFERENCES klijent (id) on delete cascade;
 
 CREATE INDEX idx_pk_kredit ON kredit (id);
 CREATE INDEX idx_pk_klijent ON klijent (id);
