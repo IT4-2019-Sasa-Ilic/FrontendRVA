@@ -17,7 +17,15 @@ import { KlijentComponent } from './components/klijent/klijent.component';
 import { RacunComponent } from './components/racun/racun.component';
 import { TipRacunaComponent } from './components/tip-racuna/tip-racuna.component';
 import { KreditComponent } from './components/kredit/kredit.component';
-
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { TipRacunaDialogComponent } from './components/dialogs/tip-racuna-dialog/tip-racuna-dialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -29,7 +37,8 @@ import { KreditComponent } from './components/kredit/kredit.component';
     KlijentComponent,
     RacunComponent,
     TipRacunaComponent,
-    KreditComponent
+    KreditComponent,
+    TipRacunaDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,14 @@ import { KreditComponent } from './components/kredit/kredit.component';
     MatListModule,
     MatGridListModule,
     MatExpansionModule,
+    MatTableModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

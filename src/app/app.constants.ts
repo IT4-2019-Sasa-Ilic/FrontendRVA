@@ -1,0 +1,1 @@
+export const TIP_RACUNA_URL ="http://localhost:8083/tipRacuna";
