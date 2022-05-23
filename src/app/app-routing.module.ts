@@ -4,12 +4,13 @@ import { AboutComponent } from './components/core/about/about.component';
 import { AutorComponent } from './components/core/autor/autor.component';
 import { HomeComponent } from './components/core/home/home.component';
 import { KlijentComponent } from './components/klijent/klijent.component';
+import { KreditComponent } from './components/kredit/kredit.component';
 import { RacunComponent } from './components/racun/racun.component';
 import { TipRacunaComponent } from './components/tip-racuna/tip-racuna.component';
 
 const routes: Routes = [
+ { path: 'kredit', component: KreditComponent },
  { path: 'klijent', component: KlijentComponent },
- { path: 'racun', component: RacunComponent },
  { path: 'tipRacuna', component: TipRacunaComponent },
  { path: 'home', component: HomeComponent},
  { path: 'about', component: AboutComponent},

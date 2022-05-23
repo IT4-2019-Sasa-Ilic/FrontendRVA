@@ -26,6 +26,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { KreditDialogComponent } from './components/dialogs/kredit-dialog/kredit-dialog.component';
+import { KlijentDialogComponent } from './components/dialogs/klijent-dialog/klijent-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { MatInputModule } from '@angular/material/input';
     RacunComponent,
     TipRacunaComponent,
     KreditComponent,
-    TipRacunaDialogComponent
+    TipRacunaDialogComponent,
+    KreditDialogComponent,
+    KlijentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
