@@ -5,6 +5,7 @@ import { KreditService } from 'src/app/services/kredit.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { kredit } from 'src/app/models/kredit';
+import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-klijent-dialog',
@@ -13,7 +14,7 @@ import { kredit } from 'src/app/models/kredit';
 })
 export class KlijentDialogComponent implements OnInit {
 
-
+  subscription!:Subscription;
   public flag!:number;
   krediti!: kredit[];
 
@@ -45,7 +46,7 @@ export class KlijentDialogComponent implements OnInit {
       this.snackBar.open('Uspešno dodat klijent ' + this.data.ime + ' '+ this.data.prezime,'OK',{duration:2500 })
     },
     (error:Error)=> {
-      this.snackBar.open('Doslo je do greske prilikom dodavanja tipa racuna','CLOSE',{duration:2500 })
+      this.snackBar.open('Doslo je do greske prilikom dodavanja klijenta','CLOSE',{duration:2500 })
 
     });
   }
@@ -64,7 +65,7 @@ export class KlijentDialogComponent implements OnInit {
 
     this.klijentService.deleteKlijent(this.data.id).subscribe(() => {
 
-      this.snackBar.open('Uspešno obrisan tip računa' + this.data.ime + ' '+ this.data.prezime,'OK',{duration:2500 })
+      this.snackBar.open('Uspešno obrisan klijent ' + this.data.ime + ' '+ this.data.prezime,'OK',{duration:2500 })
     },
     (error:Error)=> {
       this.snackBar.open('Doslo je do greske prilikom brisanja klijenta','CLOSE',{duration:2500 })

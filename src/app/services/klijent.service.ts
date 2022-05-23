@@ -18,7 +18,7 @@ public getAllKlijenti(): Observable <any> {
 
 public addKlijent(klijent:Klijent):Observable <any> {
 
-  klijent.id=355;
+  klijent.id=500;
   return this.httpClient.post(`${KLIJENT_URL}`,klijent);
 }
 public updateKlijent(klijent:Klijent):Observable <any> {
