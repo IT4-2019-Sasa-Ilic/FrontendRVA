@@ -1,5 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { tip_racuna } from 'src/app/models/tip_racuna';
@@ -17,6 +19,9 @@ export class TipRacunaComponent implements OnInit,OnDestroy {
   dataSource!:MatTableDataSource<tip_racuna>;
   subscription!:Subscription;
 
+  @ViewChild(MatSort,{static:false}) sort!:MatSort;
+  @ViewChild(MatPaginator, {static:false}) paginator!:MatPaginator;
+
   constructor(private tipRacunaService:TipRacunaServices,
     private dialog:MatDialog) { }
   ngOnDestroy(): void {
@@ -30,6 +35,8 @@ export class TipRacunaComponent implements OnInit,OnDestroy {
   public loadData() {
     this.subscription=this.tipRacunaService.getAllTip_Racuna().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     },
     (error:Error) => {
 
@@ -49,6 +56,13 @@ export class TipRacunaComponent implements OnInit,OnDestroy {
       }
 
     })
+  }
+
+  applyFilter(filterValue:any ){
+    filterValue = filterValue.target.value;
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLocaleLowerCase();
+    this.dataSource.filter = filterValue;
   }
 
 }

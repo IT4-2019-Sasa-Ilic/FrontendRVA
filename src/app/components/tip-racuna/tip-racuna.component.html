@@ -3,24 +3,27 @@
 </mat-toolbar>
 
   <div class="container mat-elavation-z8">
-    <mat-table #table [dataSource]="dataSource" class="mat-cell">
+    <mat-form-field>
+      <input matInput placeholder=" pretraga tipova racuna..." (keyup)="applyFilter($event)">
+      </mat-form-field>
+    <mat-table #table [dataSource]="dataSource" class="mat-cell" matSort>
       <!--ID-->
       <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
       </ng-container>
       <!--Naziv-->
       <ng-container matColumnDef="naziv">
-        <mat-header-cell *matHeaderCellDef>Naziv</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.naziv }}</mat-cell>
       </ng-container>
       <!-- Proizvodjac -->
       <ng-container matColumnDef="oznaka">
-        <mat-header-cell *matHeaderCellDef>Oznaka</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Oznaka</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.oznaka }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="opis">
-        <mat-header-cell *matHeaderCellDef>Opis</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Opis</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.opis }}</mat-cell>
       </ng-container>
       <!-- Action Buttons -->
@@ -45,4 +48,7 @@
         *matRowDef="let row; columns: displayedColumns">
       </mat-row>
     </mat-table>
+    <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions] = "[5,10,25,100]"> 
+
+    </mat-paginator>
   </div>

@@ -1,5 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { kredit } from 'src/app/models/kredit';
@@ -17,6 +19,9 @@ export class KreditComponent implements OnInit,OnDestroy {
   dataSource!:MatTableDataSource<kredit>;
   subscription!:Subscription;
 
+  @ViewChild(MatSort,{static:false}) sort!:MatSort;
+  @ViewChild(MatPaginator, {static:false}) paginator!:MatPaginator;
+  
   constructor(private kreditService:KreditService,
     private dialog:MatDialog ) { }
 
@@ -27,6 +32,8 @@ export class KreditComponent implements OnInit,OnDestroy {
     public loadData() {
       this.subscription=this.kreditService.getAllKrediti().subscribe(data => {
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       },
       (error:Error) => {
   
@@ -50,6 +57,13 @@ export class KreditComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.loadData();
+  }
+
+  applyFilter(filterValue:any ){
+    filterValue = filterValue.target.value;
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLocaleLowerCase();
+    this.dataSource.filter = filterValue;
   }
 
 }

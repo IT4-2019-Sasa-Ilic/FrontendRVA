@@ -29,6 +29,9 @@ import { MatInputModule } from '@angular/material/input';
 import { KreditDialogComponent } from './components/dialogs/kredit-dialog/kredit-dialog.component';
 import { KlijentDialogComponent } from './components/dialogs/klijent-dialog/klijent-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { RacunDialogComponent } from './components/dialogs/racun-dialog/racun-dialog.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import { MatSelectModule } from '@angular/material/select';
     KreditComponent,
     TipRacunaDialogComponent,
     KreditDialogComponent,
-    KlijentDialogComponent
+    KlijentDialogComponent,
+    RacunDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
